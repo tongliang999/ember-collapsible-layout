@@ -1,3 +1,22 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#collapsible-layout as |layout|}}
+
+    {{#collapsible-panel layout=layout config=centerPanel}}
+      Center panel content here
+      {{yield}}
+    {{/collapsible-panel}}
+
+    {{#collapsible-panel layout=layout config=topPanel}}
+      Top panel content here
+    {{/collapsible-panel}}
+
+    {{#collapsible-panel layout=layout config=leftPanel}}
+      Left panel content here
+    {{/collapsible-panel}}
+
+    {{#collapsible-panel layout=layout config=rightPanel}}
+      Right panel content here
+    {{/collapsible-panel}}
+
+  {{/collapsible-layout}}
 
 {{outlet}}

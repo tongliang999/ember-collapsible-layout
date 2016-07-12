@@ -1,33 +1,35 @@
 <div class="collapsible-panel {{if isCollapsed "collapsed"}} {{customPanelClasses}}" style={{relStyle}}>
+  {{#unless hideCollpseBtn}}
   {{#if top}}
   <div class="collapsible-panel-controls">
     <button class="btn button-collapse-panel" {{action "collapsePanel"}}><i class="glyphicon glyphicon-menu-up"></i></button>
     <button class="btn button-expand-panel" {{action "expandPanel"}}><i class="glyphicon glyphicon-menu-down"></i></button>
   </div>
   {{/if}}
-  
+
   {{#if right}}
     <div class="collapsible-panel-controls">
       <button class="btn button-collapse-panel" {{action "collapsePanel"}}><i class="glyphicon glyphicon-menu-right"></i></button>
       <button class="btn button-expand-panel" {{action "expandPanel"}}><i class="glyphicon glyphicon-menu-left"></i></button>
     </div>
   {{/if}}
-  
+
   {{#if bottom}}
     <div class="collapsible-panel-controls">
       <button class="btn button-collapse-panel" {{action "collapsePanel"}}><i class="glyphicon glyphicon-menu-down"></i></button>
       <button class="btn button-expand-panel" {{action "expandPanel"}}><i class="glyphicon glyphicon-menu-up"></i></button>
     </div>
   {{/if}}
-  
+
   {{#if left}}
     <div class="collapsible-panel-controls">
       <button class="btn button-collapse-panel" {{action "collapsePanel"}}><i class="glyphicon glyphicon-menu-left"></i></button>
       <button class="btn button-expand-panel" {{action "expandPanel"}}><i class="glyphicon glyphicon-menu-right"></i></button>
     </div>
   {{/if}}
+  {{/unless}}
 
-  
+
   <div class="collapsible-panel-content">
     {{yield}}
   </div>

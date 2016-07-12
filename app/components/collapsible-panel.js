@@ -1,2 +1,2 @@
-import collapsiblePanelComponent from 'ember-collapsible-layout/components/collapsible-panel';
+import collapsiblePanelComponent from 'ember-zbj-collapsible-layout/components/collapsible-panel';
 export default collapsiblePanelComponent;

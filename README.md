@@ -1,15 +1,15 @@
-[![Build Status](https://travis-ci.org/des75/ember-collapsible-layout.svg?branch=master)](https://travis-ci.org/des75/ember-collapsible-layout)
-[![Coverage Status](https://coveralls.io/repos/github/des75/ember-collapsible-layout/badge.svg?branch=master)](https://coveralls.io/github/des75/ember-collapsible-layout?branch=master)
-[![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/ember-collapsible-layout)
+[![Build Status](https://travis-ci.org/des75/ember-zbj-collapsible-layout.svg?branch=master)](https://travis-ci.org/des75/ember-zbj-collapsible-layout)
+[![Coverage Status](https://coveralls.io/repos/github/des75/ember-zbj-collapsible-layout/badge.svg?branch=master)](https://coveralls.io/github/des75/ember-zbj-collapsible-layout?branch=master)
+[![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/ember-zbj-collapsible-layout)
 
 # Ember collapsible layout
 
-See demo [here](https://des75.github.io/ember-collapsible-layout-demo/)
+See demo [here](https://des75.github.io/ember-zbj-collapsible-layout-demo/)
 
 ## Installation
 
 ```
-npm install ember-collapsible-layout --save-dev
+npm install ember-zbj-collapsible-layout --save-dev
 ```
 
 ## Usage

@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-collapsible-layout'
+  name: 'ember-zbj-collapsible-layout'
 };

@@ -1,7 +1,7 @@
 {
-  "name": "ember-collapsible-layout",
-  "version": "0.0.10",
-  "description": "https://des75.github.io/ember-collapsible-layout-demo/",
+  "name": "ember-zbj-collapsible-layout",
+  "version": "0.0.1",
+  "description": "https://des75.github.io/ember-zbj-collapsible-layout-demo/",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -32,19 +32,17 @@
     "ember-cli-release": "0.2.8",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
-    "ember-data": "^2.5.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "ember-try": "^0.2.2",
     "loader.js": "^4.0.1"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
-    "bourbon": "^4.2.7",
+    "ember-cli-less": "^1.3.3",
     "ember-cli-babel": "^5.1.6"
   },
   "ember-addon": {

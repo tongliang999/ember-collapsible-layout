@@ -1,15 +1,13 @@
-@import "../../../node_modules/bourbon/app/assets/stylesheets/_bourbon.scss";
-
-$border-color: #cecece;
-$collapse-button-width: 26px;
-$collapse-button-height: 26px;
-$collapse-button-border-radius: 2px;
+@border-color: transparent;
+@collapse-button-width: 26px;
+@collapse-button-height: 26px;
+@collapse-button-border-radius: 2px;
 
 .collapsible-panel-container{
   .collapsible-panel{
     .collapsible-panel-content {
       overflow: auto;
-      @include position(absolute, 0 0 0 0);
+      position:absolute;left:0;right:0;top:0;bottom:0;
     }
   }
 
@@ -48,12 +46,12 @@ $collapse-button-border-radius: 2px;
 
 // =============
 
-$default-north: 100px;
-$default-east: 100px;
-$default-south: 100px;
-$default-west: 100px;
+@default-north: 100px;
+@default-east: 100px;
+@default-south: 100px;
+@default-west: 100px;
 
-$resize-tool-width: $collapse-button-width / 2;
+@resize-tool-width: @collapse-button-width / 2;
 
 .collapsible-panel {
   position: absolute;
@@ -63,9 +61,9 @@ $resize-tool-width: $collapse-button-width / 2;
     .button-collapse-panel,
     .button-expand-panel{
       left: 50%;
-      margin-left: -$collapse-button-width / 2;
-      height: $collapse-button-height / 2;
-      width: $collapse-button-width * 2;
+      margin-left: -@collapse-button-width / 2;
+      height: @collapse-button-height / 2;
+      width: @collapse-button-width * 2;
     }
   }
   &--left,
@@ -73,9 +71,9 @@ $resize-tool-width: $collapse-button-width / 2;
     .button-collapse-panel,
     .button-expand-panel{
       top: 50%;
-      margin-top: -$collapse-button-height / 2;
-      height: $collapse-button-height * 2;
-      width: $collapse-button-width / 2;
+      margin-top: -@collapse-button-height / 2;
+      height: @collapse-button-height * 2;
+      width: @collapse-button-width / 2;
     }
   }
 
@@ -91,9 +89,9 @@ $resize-tool-width: $collapse-button-width / 2;
     }
 
     > .collapsible-panel {
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid @border-color;
       left: 0; right:0; top:0;
-      height: $default-north;
+      height: @default-north;
 
       > .collapsible-panel-controls{
         bottom: 0;
@@ -103,22 +101,20 @@ $resize-tool-width: $collapse-button-width / 2;
         .button-collapse-panel{
           bottom: 0;
           border-bottom: none;
-          @include border-bottom-radius($collapse-button-border-radius);
         }
         .button-expand-panel{
           top: 100%;
           border-top: none;
-          @include border-top-radius($collapse-button-border-radius);
         }
       }
     }
     &.resizeable{
       > .collapsible-panel {
         > .collapsible-panel-controls{
-          background: $border-color;
+          background: @border-color;
           cursor: n-resize;
           &:hover{
-            height: $resize-tool-width;
+            height: @resize-tool-width;
           }
         }
       }
@@ -138,9 +134,9 @@ $resize-tool-width: $collapse-button-width / 2;
     > .collapsible-panel {
       right: 0;
       top: 0;
-      width: $default-east;
+      width: @default-east;
       bottom: 0;
-      border-left: 1px solid $border-color;
+      border-left: 1px solid @border-color;
 
       > .collapsible-panel-controls{
         left: 0;
@@ -150,12 +146,10 @@ $resize-tool-width: $collapse-button-width / 2;
         .button-collapse-panel{
           left: 0;
           border-left: none;
-          @include border-right-radius($collapse-button-border-radius);
         }
         .button-expand-panel{
           right: 100%;
           border-right: none;
-          @include border-left-radius($collapse-button-border-radius);
         }
       }
     }
@@ -163,10 +157,10 @@ $resize-tool-width: $collapse-button-width / 2;
     &.resizeable{
       > .collapsible-panel {
         > .collapsible-panel-controls{
-          background: $border-color;
+          background: @border-color;
           cursor: e-resize;
           &:hover{
-            width: $resize-tool-width;
+            width: @resize-tool-width;
           }
         }
       }
@@ -185,8 +179,8 @@ $resize-tool-width: $collapse-button-width / 2;
 
     > .collapsible-panel {
       left: 0; right: 0; bottom: 0;
-      height: $default-south;
-      border-top: 1px solid $border-color;
+      height: @default-south;
+      border-top: 1px solid @border-color;
 
       > .collapsible-panel-controls{
         top: 0;
@@ -196,22 +190,20 @@ $resize-tool-width: $collapse-button-width / 2;
         .button-collapse-panel{
           top: 0;
           border-top: none;
-          @include border-bottom-radius($collapse-button-border-radius);
         }
         .button-expand-panel{
           bottom: 100%;
           border-bottom: none;
-          @include border-top-radius($collapse-button-border-radius);
         }
       }
     }
     &.resizeable{
       > .collapsible-panel {
         > .collapsible-panel-controls{
-          background: $border-color;
+          background: @border-color;
           cursor: s-resize;
           &:hover{
-            height: $resize-tool-width;
+            height: @resize-tool-width;
           }
         }
       }
@@ -231,9 +223,9 @@ $resize-tool-width: $collapse-button-width / 2;
     > .collapsible-panel {
       left: 0;
       top: 0;
-      width: $default-west;
+      width: @default-west;
       bottom: 0;
-      border-right: 1px solid $border-color;
+      border-right: 1px solid @border-color;
 
       > .collapsible-panel-controls{
         right: 0;
@@ -243,12 +235,10 @@ $resize-tool-width: $collapse-button-width / 2;
         .button-collapse-panel{
           right: 0;
           border-right: none;
-          @include border-left-radius($collapse-button-border-radius);
         }
         .button-expand-panel{
           left: 100%;
           border-left: none;
-          @include border-right-radius($collapse-button-border-radius);
         }
       }
     }
@@ -256,10 +246,10 @@ $resize-tool-width: $collapse-button-width / 2;
     &.resizeable{
       > .collapsible-panel {
         > .collapsible-panel-controls{
-          background: $border-color;
+          background: @border-color;
           cursor: w-resize;
           &:hover{
-            width: $resize-tool-width;
+            width: @resize-tool-width;
           }
         }
       }
@@ -282,7 +272,7 @@ $resize-tool-width: $collapse-button-width / 2;
 }
 
 .collapsible-layout{
-  $layout-control-panel-height: 40px;
+  @layout-control-panel-height: 40px;
 
   position: absolute;
   left: 0;
@@ -301,12 +291,12 @@ $resize-tool-width: $collapse-button-width / 2;
 
     position: absolute;
     width: 100%;
-    height: $layout-control-panel-height;
+    height: @layout-control-panel-height;
     bottom: 0;
     left: 0;
 
     background: white;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid @border-color;
   }
 
   &.responsive-layout{
@@ -327,7 +317,7 @@ $resize-tool-width: $collapse-button-width / 2;
           .collapsible-panel{
             top: 0;
             right: 0;
-            bottom: $layout-control-panel-height !important;
+            bottom: @layout-control-panel-height !important;
             left: 0;
             overflow: auto;
 

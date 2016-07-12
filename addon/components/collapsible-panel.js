@@ -48,6 +48,7 @@ export default Ember.Component.extend({
 
     this.set(config.region, true);
     this.set("region", config.region);
+    this.set("hideCollpseBtn", config.hideCollpseBtn);
     this.set("resizeable", config.resizeable);
 
     layout.set(config.region, this);
