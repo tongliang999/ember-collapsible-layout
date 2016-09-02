@@ -12,6 +12,7 @@ export default Ember.Component.extend({
 
   regions: ["top", "right", "bottom", "left", "center"],
   primaryRegion: "center",
+  hideCollpseBtn: true,
 
   actions: {
     collapsePanel (region){

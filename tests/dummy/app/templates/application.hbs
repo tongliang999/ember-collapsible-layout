@@ -1,19 +1,19 @@
 {{#collapsible-layout as |layout|}}
 
-    {{#collapsible-panel layout=layout config=centerPanel}}
+    {{#collapsible-panel}}
       Center panel content here
       {{yield}}
     {{/collapsible-panel}}
 
-    {{#collapsible-panel layout=layout config=topPanel}}
+    {{#collapsible-panel region='top' height=50}}
       Top panel content here
     {{/collapsible-panel}}
 
-    {{#collapsible-panel layout=layout config=leftPanel}}
+    {{#collapsible-panel region='left' width=300}}
       Left panel content here
     {{/collapsible-panel}}
 
-    {{#collapsible-panel layout=layout config=rightPanel}}
+    {{#collapsible-panel region='right' width=300}}
       Right panel content here
     {{/collapsible-panel}}
 

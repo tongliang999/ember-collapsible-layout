@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Layout from './collapsible-layout';
 
 export default Ember.Component.extend({
   classNameBindings: [
@@ -11,6 +12,25 @@ export default Ember.Component.extend({
     "resizeable:resizeable"
   ],
   classNames: "collapsible-panel-container",
+  showCollpseBtn: true,
+  hideCollpseBtn: Ember.computed('layout.hideCollpseBtn', 'showCollpseBtn', function() {
+    return !(!this.get('layout.hideCollpseBtn') && this.get('showCollpseBtn'));
+  }),
+  region: 'center',
+  resizeable: undefined,
+  width: 100,
+  height: 100,
+  config: {},
+
+  _config: Ember.computed('region', 'resizeable', 'width', 'height', function() {
+    let region = this.get('region');
+    let resizeable = this.get('resizeable');
+    let width = this.get('width');
+    let height = this.get('height');
+
+    return { region, resizeable, width, height };
+  }),
+
 
   actions: {
     collapsePanel(){
@@ -22,33 +42,38 @@ export default Ember.Component.extend({
   },
   collapse() {
     this.set('isCollapsed', true);
-    this.layout.set(`${this.region}Collapsed`, this.isCollapsed);
-    this.layout.restylePanels();
+    this.get('layout').set(`${this.region}Collapsed`, this.isCollapsed);
+    this.get('layout').restylePanels();
     this.sendAction('config.actions.collapsePanel');
   },
   expand() {
     this.set('isCollapsed', false);
-    this.layout.set(`${this.region}Collapsed`, this.isCollapsed);
-    this.layout.restylePanels();
+    this.get('layout').set(`${this.region}Collapsed`, this.isCollapsed);
+    this.get('layout').restylePanels();
     this.sendAction('config.actions.expandPanel');
   },
 
   updateLayout(){
-    this.set("relStyle", Ember.String.htmlSafe(this.layout.styleFor(this.region)));
+    let layout = this.get("layout");
+    this.set("relStyle", Ember.String.htmlSafe(layout.styleFor(this.region)));
   },
+
+  layout: Ember.computed(function() {
+    return this.nearestOfType(Layout);
+  }),
 
   init(){
     this._super(...arguments);
-    let config = this.get("config");
+    let config = this.get("_config");
     let layout = this.get("layout");
 
     Ember.assert('config should be passed', config);
     Ember.assert('config.region should be passed', config.region);
     Ember.assert('must be inside {{#collapsible-layout}} block as layout', layout);
 
+    this.set('config', config);
     this.set(config.region, true);
     this.set("region", config.region);
-    this.set("hideCollpseBtn", config.hideCollpseBtn);
     this.set("resizeable", config.resizeable);
 
     layout.set(config.region, this);
