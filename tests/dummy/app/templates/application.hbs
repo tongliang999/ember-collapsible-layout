@@ -1,21 +1,21 @@
 {{#collapsible-layout as |layout|}}
 
-    {{#collapsible-panel}}
+    {{#layout.center}}
       Center panel content here
       {{yield}}
-    {{/collapsible-panel}}
+    {{/layout.center}}
 
-    {{#collapsible-panel region='top' height=50}}
+    {{#layout.top height=50}}
       Top panel content here
-    {{/collapsible-panel}}
+    {{/layout.top}}
 
-    {{#collapsible-panel region='left' width=300}}
+    {{#layout.left width=200}}
       Left panel content here
-    {{/collapsible-panel}}
+    {{/layout.left}}
 
-    {{#collapsible-panel region='right' width=300}}
+    {{#layout.right width=300}}
       Right panel content here
-    {{/collapsible-panel}}
+    {{/layout.right}}
 
   {{/collapsible-layout}}
 

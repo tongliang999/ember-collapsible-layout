@@ -11,6 +11,7 @@ export default Ember.Component.extend({
     "center:collapsible-panel--center",
     "resizeable:resizeable"
   ],
+
   classNames: "collapsible-panel-container",
   showCollpseBtn: true,
   hideCollpseBtn: Ember.computed('layout.hideCollpseBtn', 'showCollpseBtn', function() {
