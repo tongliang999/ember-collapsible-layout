@@ -177,7 +177,7 @@ left: ${styleValue("left")}px;`;
       Ember.$(window).unbind('resize', this.get('resizeHandler'));
     }
   },
-  didRender(){
+  didRenderx(){
     this._super(...arguments);
     Ember.run.scheduleOnce('afterRender', this, 'onAfterRender');
   },
@@ -186,6 +186,9 @@ left: ${styleValue("left")}px;`;
       this.get("resizeHandler")();
     }
     this.restylePanels();
+  },
+  didInsertElement() {
+    this.onAfterRender();
   },
 
   // ==
