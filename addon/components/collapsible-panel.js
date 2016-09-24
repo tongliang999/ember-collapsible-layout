@@ -74,15 +74,23 @@ export default Ember.Component.extend({
 
     this.set('config', config);
     this.set(config.region, true);
+    this.initKeySize();
     this.set("region", config.region);
     this.set("resizeable", config.resizeable);
 
     layout.set(config.region, this);
+    // this.updateLayout();
   },
 
-  didReceiveAttrs(){
+  willDestroyElement() {
     this._super(...arguments);
+    let config = this.get("_config");
+    let layout = this.get("layout");
+    layout.set(config.region, null);
+    layout.restylePanels();
+  },
 
+  initKeySize() {
     let config = this.get("config");
 
     if(!this.get("sizeValue")){
@@ -99,6 +107,12 @@ export default Ember.Component.extend({
         this.set("keySizeValue", "width");
       }
     }
+  },
+
+  didReceiveAttrs(){
+    this._super(...arguments);
+
+    this.initKeySize();
   }
 
 });

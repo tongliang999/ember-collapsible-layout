@@ -105,6 +105,12 @@ export default Ember.Component.extend({
     });
   },
 
+  regionChanged: Ember.observer("top", "right", "bottom", "left", "center", function() {
+    if (this.inited) {
+      this.restylePanels();
+    }
+  }),
+
   styleFor(region){
     var layout =this;
     var styleValue = function(r){
@@ -186,8 +192,10 @@ left: ${styleValue("left")}px;`;
       this.get("resizeHandler")();
     }
     this.restylePanels();
+    this.inited = true;
   },
   didInsertElement() {
+    this._super(...arguments);
     this.onAfterRender();
   },
 
