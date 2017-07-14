@@ -98,18 +98,24 @@ export default Ember.Component.extend({
   },
 
   restylePanels(){
-    this.regions.forEach((r) => {
-      if(this.get(r)){
-        this.get(r).updateLayout();
-      }
-    });
+    Ember.run.debounce(() => {
+      this.regions.forEach((r) => {
+        if(this.get(r)){
+          this.get(r).updateLayout();
+        }
+      });
+    }, 10);
   },
 
   regionChanged: Ember.observer("top", "right", "bottom", "left", "center", function() {
+    Ember.run.once(this, '_restyle');
+  }),
+
+  _restyle() {
     if (this.inited) {
       this.restylePanels();
     }
-  }),
+  },
 
   styleFor(region){
     var layout =this;
