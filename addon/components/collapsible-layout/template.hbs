@@ -1,0 +1,33 @@
+{{yield (hash
+ top=(component 'collapsible-panel' region="top")
+ right=(component 'collapsible-panel' region="right")
+ bottom=(component 'collapsible-panel' region="bottom")
+ left=(component 'collapsible-panel' region="left")
+ center=(component 'collapsible-panel' region="center")
+)}}
+
+<div class="collapsible-layout-control-panel">
+ {{#if topCollapsed}}
+   <button class="btn" {{action "expandPanel" "top"}}>Top</button>
+ {{else}}
+   <button class="btn" {{action "collapsePanel" "top"}}>Top</button>
+ {{/if}}
+
+ {{#if rightCollapsed}}
+   <button class="btn" {{action "expandPanel" "right"}}>Right</button>
+ {{else}}
+   <button class="btn" {{action "collapsePanel" "right"}}>Right</button>
+ {{/if}}
+
+ {{#if bottomCollapsed}}
+   <button class="btn" {{action "expandPanel" "bottom"}}>Bottom</button>
+ {{else}}
+   <button class="btn" {{action "collapsePanel" "bottom"}}>Bottom</button>
+ {{/if}}
+
+ {{#if leftCollapsed}}
+   <button class="btn" {{action "expandPanel" "left"}}>Left</button>
+ {{else}}
+   <button class="btn" {{action "collapsePanel" "left"}}>Left</button>
+ {{/if}}
+</div>

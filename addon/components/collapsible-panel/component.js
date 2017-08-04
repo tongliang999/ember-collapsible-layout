@@ -1,7 +1,9 @@
 import Ember from 'ember';
-import Layout from './collapsible-layout';
+import Layout from '../collapsible-layout/component';
+import layout from './template';
 
 export default Ember.Component.extend({
+  layout,
   classNameBindings: [
     "isCollapsed:collapsed",
     "top:collapsible-panel--top",
@@ -14,8 +16,8 @@ export default Ember.Component.extend({
 
   classNames: "collapsible-panel-container",
   showCollpseBtn: true,
-  hideCollpseBtn: Ember.computed('layout.hideCollpseBtn', 'showCollpseBtn', function() {
-    return !(!this.get('layout.hideCollpseBtn') && this.get('showCollpseBtn'));
+  hideCollpseBtn: Ember.computed('collapsibleLayout.hideCollpseBtn', 'showCollpseBtn', function() {
+    return !(!this.get('collapsibleLayout.hideCollpseBtn') && this.get('showCollpseBtn'));
   }),
   region: 'center',
   resizeable: undefined,
@@ -35,38 +37,38 @@ export default Ember.Component.extend({
 
   actions: {
     collapsePanel(){
-      this.get("layout").collapsePanel(this.get("region"));
+      this.get("collapsibleLayout").collapsePanel(this.get("region"));
     },
     expandPanel(){
-      this.get("layout").expandPanel(this.get("region"));
+      this.get("collapsibleLayout").expandPanel(this.get("region"));
     }
   },
   collapse() {
     this.set('isCollapsed', true);
-    this.get('layout').set(`${this.region}Collapsed`, this.isCollapsed);
-    this.get('layout').restylePanels();
+    this.get('collapsibleLayout').set(`${this.region}Collapsed`, this.isCollapsed);
+    this.get('collapsibleLayout').restylePanels();
     this.sendAction('config.actions.collapsePanel');
   },
   expand() {
     this.set('isCollapsed', false);
-    this.get('layout').set(`${this.region}Collapsed`, this.isCollapsed);
-    this.get('layout').restylePanels();
+    this.get('collapsibleLayout').set(`${this.region}Collapsed`, this.isCollapsed);
+    this.get('collapsibleLayout').restylePanels();
     this.sendAction('config.actions.expandPanel');
   },
 
   updateLayout(){
-    let layout = this.get("layout");
+    let layout = this.get("collapsibleLayout");
     this.set("relStyle", Ember.String.htmlSafe(layout.styleFor(this.region)));
   },
 
-  layout: Ember.computed(function() {
+  collapsibleLayout: Ember.computed(function() {
     return this.nearestOfType(Layout);
   }),
 
   init(){
     this._super(...arguments);
     let config = this.get("_config");
-    let layout = this.get("layout");
+    let layout = this.get("collapsibleLayout");
 
     Ember.assert('config should be passed', config);
     Ember.assert('config.region should be passed', config.region);
@@ -85,7 +87,7 @@ export default Ember.Component.extend({
   willDestroyElement() {
     this._super(...arguments);
     let config = this.get("_config");
-    let layout = this.get("layout");
+    let layout = this.get("collapsibleLayout");
     layout.set(config.region, null);
     layout.restylePanels();
   },
